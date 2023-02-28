@@ -16,9 +16,9 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
-          scope: 'nlsn'
+          scope: '@furious-ui'
       - run: yarn && npx vite build
       - run: bash scripts/updateVersion.sh
       - run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_FURIOUS_UI_AUTOMATION_ACCESS_TOKEN }}
