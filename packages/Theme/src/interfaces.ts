@@ -36,7 +36,7 @@ export interface ThemeColor {
   normal: string
 }
 
-export interface ThemeContextProps {
+export interface ThemeProps {
   spacing: ThemeSpacing
   lineHeight: ThemeLineHeight
   fontSize: ThemeFontSize
@@ -53,4 +53,9 @@ export interface ThemeContextProps {
     gray: ThemeColor
     background: ThemeColor
   }
+}
+
+export interface ThemeContextProps {
+  theme: ThemeProps
+  setTheme: React.Dispatch<React.SetStateAction<ThemeProps | undefined>>
 }

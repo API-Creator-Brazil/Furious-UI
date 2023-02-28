@@ -17,5 +17,6 @@ module.exports = {
   plugins: ['react'],
   rules: {
     quotes: ['error', 'single'],
+    '@typescript-eslint/consistent-type-assertions': 'warn',
   },
 }

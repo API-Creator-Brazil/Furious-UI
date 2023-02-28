@@ -1,4 +1,4 @@
-import type { ThemeColor, ThemeContextProps } from './interfaces'
+import type { ThemeColor, ThemeProps } from './interfaces'
 
 export const themeColorsBuilder = (palette: string[]): ThemeColor => {
   return {
@@ -52,7 +52,7 @@ export const themeBuilder = ({
 
   gray,
   background,
-}: ThemeBuilderProps): ThemeContextProps => {
+}: ThemeBuilderProps): ThemeProps => {
   return {
     spacing: {
       short: spacing[0],
