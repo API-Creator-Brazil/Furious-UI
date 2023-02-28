@@ -22,7 +22,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - run: yarn
     - run: npx vite build
   
@@ -38,7 +37,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - run: yarn
     - run: npx build-storybook
 
@@ -54,6 +52,5 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - run: yarn
     - run: npx vitest
