@@ -18,6 +18,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
       - run: yarn && npx vite build
       - run: bash scripts/updateVersion.sh
-      - run: npm publish
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_FURIOUS_UI_PUBLISH_ACCESS_TOKEN }}
