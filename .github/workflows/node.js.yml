@@ -38,7 +38,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn
-    - run: npx build-storybook
+    - run: npx build-storybook --quiet --disable-telemetry --loglevel error
 
   test:
     runs-on: ubuntu-latest
