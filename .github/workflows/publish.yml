@@ -5,7 +5,35 @@ on:
     branches: ['master']
 
 jobs:
+  versioning:
+    runs-on: ubuntu-latest
+    name: RainMachine Parsers versioning
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Automatic Versioning
+        uses: nicupavel/action-files-version-increment@v3
+      - name: Get the output time
+        run: echo "The time was ${{ steps.versioning.outputs.time }}"
+      - name: Get list of modified files
+        run: echo "Modified files ${{ steps.versioning.outputs.modified_files }}"
+      - id: commit_if_modified
+        name: Commit metadata file
+        if: steps.versioning.outputs.modified_files
+        run: |
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --local user.name "$GITHUB_ACTOR"
+          git commit -am "Versioning for ${{ steps.versioning.outputs.modified_files }}"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.head_ref }}
+
   publish:
+    needs: [versioning]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -17,7 +45,6 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: yarn && npx vite build
-      - run: bash scripts/updateVersion.sh
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_FURIOUS_UI_PUBLISH_ACCESS_TOKEN }}
