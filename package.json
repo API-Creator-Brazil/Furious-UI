@@ -1,8 +1,7 @@
 {
-  "name": "furious-ui",
+  "name": "@furious-ui/furious-ui",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "vitest",
@@ -19,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/API-Creator-Brazil/Furious-UI/issues"
   },
-  "homepage": "https://github.com/API-Creator-Brazil/Furious-UI#readme",
+  "homepage": "https://furious-ui.netlify.app/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",

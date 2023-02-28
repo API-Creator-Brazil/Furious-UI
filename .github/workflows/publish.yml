@@ -1,0 +1,29 @@
+name: Publish package to GitHub Packages
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@furious-ui'
+      - run: yarn && npx vite build
+      - run: |
+          CURRENT_VERSION=$(jq -r '.version' package.json) \
+          IFS=. read i1 i2 i3 <<<"$CURRENT_VERSION" \
+          i3_updated=$((i3 + 1)) \
+          new_version=$i1.$i2.$i3_updated \
+          sed -i "s/\"version\": \"${CURRENT_VERSION}\"/\"version\": \"${new_version}\"/" package.json
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

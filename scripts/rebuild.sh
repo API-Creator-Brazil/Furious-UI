@@ -4,3 +4,4 @@ rm node_modules -rf && yarn cache clean
 yarn
 npx vitest
 npx vite build
+npx build-storybook
