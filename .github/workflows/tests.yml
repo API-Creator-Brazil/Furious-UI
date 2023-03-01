@@ -4,21 +4,16 @@ name: Tests
 
 on:
   push:
-    branches: ['master']
+    branches: ['master', 'develop']
   pull_request:
-    branches: ['master']
+    branches: ['master', 'develop']
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
       - run: yarn
-      - run: npx vitest
+      - run: npx vitest --coverage
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
