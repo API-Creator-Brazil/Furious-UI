@@ -1,6 +1,6 @@
 # Docs: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Build
+name: Coverage
 
 on:
   push:
@@ -9,15 +9,9 @@ on:
     branches: ['master', 'develop']
 
 jobs:
-  build:
+  coverage:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: yarn
-      - run: npx vite build
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
