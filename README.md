@@ -1,8 +1,10 @@
 [![Build](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/build.yml)
 [![Lint](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/lint.yml/badge.svg)](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/lint.yml)
 [![Tests](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/tests.yml/badge.svg)](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/tests.yml)
+[![Security](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/secscan.yml/badge.svg?branch=master)](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/secscan.yml)
 [![Publish](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/publish.yml/badge.svg?branch=master)](https://github.com/API-Creator-Brazil/Furious-UI/actions/workflows/publish.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7ad1080a-bec4-4611-bf02-cead4347209d/deploy-status)](https://app.netlify.com/sites/furious-ui/deploys)
+[![codecov](https://codecov.io/gh/API-Creator-Brazil/Furious-UI/branch/master/graph/badge.svg?token=S7JYE7RAWW)](https://codecov.io/gh/API-Creator-Brazil/Furious-UI)
 
 # Description
 
