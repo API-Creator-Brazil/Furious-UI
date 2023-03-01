@@ -22,8 +22,7 @@
     "test": "vitest",
     "build": "tsc && vite build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "semantic-release": "semantic-release"
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -48,8 +47,10 @@
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@vitejs/plugin-react": "^3.1.0",
+    "@vitest/coverage-c8": "^0.29.2",
     "babel-loader": "^8.3.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.6.0",

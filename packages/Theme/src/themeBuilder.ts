@@ -1,4 +1,4 @@
-import type { ThemeColor, ThemeProps } from './interfaces'
+import type { ThemeColor, FuriousTheme } from './interfaces'
 
 export const themeColorsBuilder = (palette: string[]): ThemeColor => {
   return {
@@ -24,6 +24,8 @@ interface ThemeBuilderProps {
   spacing: string[]
   lineHeight: string[]
   fontSize: string[]
+  borderRadius: string[]
+  shadow: string[]
 
   primary: string[]
   secondary: string[]
@@ -35,12 +37,15 @@ interface ThemeBuilderProps {
 
   gray: string[]
   background: string[]
+  foreground: string[]
 }
 
 export const themeBuilder = ({
   spacing,
   lineHeight,
   fontSize,
+  borderRadius,
+  shadow,
 
   primary,
   secondary,
@@ -52,7 +57,8 @@ export const themeBuilder = ({
 
   gray,
   background,
-}: ThemeBuilderProps): ThemeProps => {
+  foreground,
+}: ThemeBuilderProps): FuriousTheme => {
   return {
     spacing: {
       short: spacing[0],
@@ -64,6 +70,18 @@ export const themeBuilder = ({
       compact: lineHeight[0],
       normal: lineHeight[1],
       loose: lineHeight[2],
+    },
+
+    borderRadius: {
+      rounded: borderRadius[0],
+      sharp: borderRadius[1],
+      default: borderRadius[2],
+    },
+
+    shadow: {
+      light: shadow[0],
+      normal: shadow[1],
+      heavy: shadow[2],
     },
 
     fontSize: {
@@ -85,6 +103,7 @@ export const themeBuilder = ({
 
       gray: themeColorsBuilder(gray),
       background: themeColorsBuilder(background),
+      foreground: themeColorsBuilder(foreground),
     },
   }
 }

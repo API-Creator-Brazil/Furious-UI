@@ -17,6 +17,15 @@
     "jsx": "react-jsx",
     "types": ["vitest/globals"]
   },
-  "include": ["packages/**/*.ts", "packages/**/*.tsx", "./*.ts"],
+  "include": [
+    // vite configs 
+    "./*.ts",
+    // packages 
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    // stories 
+    "stories/**/*.ts",
+    "stories/**/*.tsx"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

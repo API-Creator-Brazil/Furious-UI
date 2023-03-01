@@ -1,0 +1,21 @@
+name: Security
+
+on:
+  push:
+    branches: ['master', 'develop']
+  pull_request:
+    branches: ['master', 'develop']
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    name: njsscan code scanning
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ajinabraham/njsscan-action@master
+        id: njsscan
+        with:
+          args: '. --sarif --output results.sarif || true'
+      - uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif

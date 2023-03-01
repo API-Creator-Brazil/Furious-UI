@@ -1,0 +1,63 @@
+import { Canvas, Meta } from '@storybook/addon-docs'
+
+import { ColorCard } from '../src/ColorCard'
+import { successColors } from '../../Theme/src/defaultTheme'
+
+<Meta title="Components/Utils/ColorCard" component={ColorCard} />
+
+# ColorCard
+
+Just a sample div with color.
+
+```ts
+import React from 'react'
+import { Container } from './ColorCard.styles'
+import styled, { css } from 'styled-components'
+
+interface ColorCardProps {
+  color: string
+}
+
+interface ContainerProps {
+  color: string
+  active?: boolean
+}
+
+export const Container = styled.div<ContainerProps>`
+  width: 100px;
+  height: 100px;
+
+  ${({ color }) => css`
+    background-color: ${color};
+  `}
+
+  ${({ active, theme }) =>
+    active === true &&
+    css`
+      border: 1px solid ${theme.colors.foreground.dark};
+    `}
+`
+
+export const ColorCard: React.FC<ColorCardProps> = ({ color }) => {
+  return <Container color={color} />
+}
+```
+
+## Usage
+
+<Canvas>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'row',
+    }}
+  >
+    {successColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>

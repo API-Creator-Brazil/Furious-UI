@@ -1,0 +1,105 @@
+import { Canvas, Meta } from '@storybook/addon-docs'
+
+<Meta title="Docs/Theme/Intro" />
+
+# Theme
+
+`FuriousThemeProvider` provides customized theme through `styled-components` theme provider:
+
+- spacing
+- lineHeight
+- fontSize
+- border
+- shadow
+- colors
+
+```ts
+export interface FuriousTheme {
+  spacing: ThemeSpacing
+  lineHeight: ThemeLineHeight
+  fontSize: ThemeFontSize
+  border: ThemeBorder
+  shadow: ThemeShadow
+
+  colors: {
+    primary: ThemeColor
+    secondary: ThemeColor
+
+    info: ThemeColor
+    warning: ThemeColor
+    success: ThemeColor
+    error: ThemeColor
+
+    gray: ThemeColor
+    foreground: ThemeColor
+    background: ThemeColor
+  }
+}
+```
+
+## Usage
+
+### Consume theme
+
+```ts
+import styled, { css } from 'styled-components'
+
+export const ThemeColorConsumer = styled.div`
+  width: fit-content;
+
+  ${({ theme }) => css`
+    color: ${theme.colors.foreground.normal};
+    background-color: ${theme.colors.background.normal};
+
+    font-size: ${theme.fontSize.normal};
+
+    padding: ${theme.spacing.long};
+
+    border-radius: ${theme.borderRadius.default};
+    border: 1px solid ${theme.colors.foreground.normal};
+    box-shadow: ${theme.shadow.normal} ${theme.shadow.normal};
+  `}
+`
+```
+
+### Set theme at runtime
+
+```ts
+import { useContext, useEffect } from 'react'
+import { DefaultTheme } from '../../packages/Theme/src/defaultTheme'
+import { FuriousThemeContext } from '../../packages/Theme/src/FuriousThemeProvider'
+
+export const useSetNewTheme = (): void => {
+  const { setTheme } = useContext(FuriousThemeContext)
+
+  useEffect(() => {
+    setTheme({
+      ...DefaultTheme,
+      // some overides
+    })
+  }, [])
+}
+```
+
+### Initiate application with custom theme
+
+```ts
+import React from 'react'
+import { DefaultTheme } from '../../packages/Theme/src/defaultTheme'
+import { FuriousThemeProvider } from '../../packages/Theme/src/FuriousThemeProvider'
+
+export const CustomInitialTheme: React.FC = () => {
+  const customTheme = {
+    ...DefaultTheme,
+    // overides
+  }
+
+  return (
+    <FuriousThemeProvider theme={customTheme}>
+      {
+        // content
+      }
+    </FuriousThemeProvider>
+  )
+}
+```
