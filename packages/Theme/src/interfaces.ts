@@ -18,6 +18,18 @@ export interface ThemeFontSize {
   extraLarge: string
 }
 
+export interface ThemeBorderRadius {
+  default: string
+  rounded: string
+  sharp: string
+}
+
+export interface ThemeShadow {
+  light: string
+  normal: string
+  heavy: string
+}
+
 export interface ThemeColor {
   palette: {
     '10': string
@@ -36,10 +48,12 @@ export interface ThemeColor {
   normal: string
 }
 
-export interface ThemeProps {
+export interface FuriousTheme {
   spacing: ThemeSpacing
   lineHeight: ThemeLineHeight
   fontSize: ThemeFontSize
+  borderRadius: ThemeBorderRadius
+  shadow: ThemeShadow
 
   colors: {
     primary: ThemeColor
@@ -51,11 +65,12 @@ export interface ThemeProps {
     error: ThemeColor
 
     gray: ThemeColor
+    foreground: ThemeColor
     background: ThemeColor
   }
 }
 
-export interface ThemeContextProps {
-  theme: ThemeProps
-  setTheme: React.Dispatch<React.SetStateAction<ThemeProps | undefined>>
+export interface FuriousThemeContextProps {
+  theme: FuriousTheme
+  setTheme: React.Dispatch<React.SetStateAction<FuriousTheme | undefined>>
 }

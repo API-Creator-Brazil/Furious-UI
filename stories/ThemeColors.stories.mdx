@@ -1,0 +1,153 @@
+import { Canvas, Meta } from '@storybook/addon-docs'
+import {
+  primaryColors,
+  secondaryColors,
+  successColors,
+  infoColors,
+  warningColors,
+  errorColors,
+  grayColors,
+  backgroundColors,
+  foregroundColors,
+} from '../packages/Theme/src/defaultTheme'
+import { ColorCard } from '../packages/ColorCard/src/ColorCard'
+
+<Meta title="Docs/Theme/Colors" />
+
+# Theme colors
+
+`FuriousThemeProvider` provides color palette for:
+
+- primary, secondary
+- success, info, warning, error
+- foreground, background, gray scale
+
+```ts
+export interface ThemeColor {
+  palette: {
+    '10': string
+    '20': string
+    '30': string
+    '40': string
+    '50': string
+    '60': string
+    '70': string
+    '80': string
+    '90': string
+    '100': string
+  }
+  light: string
+  dark: string
+  normal: string
+}
+```
+
+## DefaultPalettes
+
+<Canvas>
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    {primaryColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>
+
+<Canvas>
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    {secondaryColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>
+
+<Canvas>
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    {successColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>
+
+<Canvas>
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    {infoColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>
+
+<Canvas>
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    {warningColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>
+
+<Canvas>
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    {errorColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>
+
+<Canvas>
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    {grayColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>
+
+<Canvas>
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    {backgroundColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>
+
+<Canvas>
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    {foregroundColors.map((color, index) => (
+      <ColorCard
+        key={color}
+        color={color}
+        active={index === 8 || index === 6 || index === 4}
+      />
+    ))}
+  </div>
+</Canvas>
